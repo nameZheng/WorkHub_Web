@@ -10,7 +10,20 @@
 		<title>workhub</title>
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">	
 		<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery.goup.min.js"></script>
 		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+        $(document).ready(function () {
+            $.goup({
+				goupSpeed: "normal",				
+                trigger: 100,
+                bottomOffset: 50,
+                locationOffset: 100,
+                title: '',
+                titleAsText: true,
+            });
+        });
+    </script>
 		<style type="text/css">
 		</style>
 	</head>
@@ -27,7 +40,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a class="navbar-brand" href="#"><img src="2.png" alt="网站log" height="35"></a>
+							<a class="navbar-brand" href="index.html"><img src="images/2.png" alt="网站log" height="35"></a>
 							<!-- <img src="1.png" alt="网站log" height="40" width=""> -->
 						</div>
 						<!-- Collect the nav links, forms, and other content for toggling -->
@@ -38,13 +51,15 @@
 										<div class="input-group">
 											<input type="text" class="form-control" placeholder="搜索职位、公司或地点">
 											<span class="input-group-btn">
-												<button class="btn btn-default" type="button">Go!</button>
+												<button class="btn btn-default" type="button">
+													<div class="glyphicon glyphicon-search"></div>
+												</button>
 											</span>
 										</div><!-- /input-group -->
 									</form>
 								</li>
 								<li>
-									<a href="#">登录/注册</a>
+									<a href="javascript:void(0)" data-toggle="modal" data-target="#login">登录/注册</a>
 								</li>
 							</ul>
 						</div><!-- /.navbar-collapse -->
@@ -83,8 +98,150 @@
 					$("#work").load("Topic.html"); 
 				}); 
 			}); 
-
 		</script>
-
+		<!-- 登录Modal -->
+		<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">登录</h4>
+					</div>
+					<div class="modal-body">
+						<form action="">
+							<div class="row">
+								<div class="col-sm-2">
+								</div>
+								<div class="col-sm-8">
+									<div class="row col-sm-12" style="margin-top:30px;margin-bottom:25px;">
+										<div class="col-sm-12">
+											<div class="input-group input-group-lg">
+												<span class="input-group-addon" id="sizing-addon1" style="background-color:white">
+													<div class="glyphicon glyphicon-phone"></div>
+												</span>
+												<input type="text" class="form-control" name="tel" placeholder="请输入手机号/邮箱" aria-describedby="sizing-addon1">
+											</div>
+										</div>
+									</div>
+									<div class="row col-sm-12" style="margin-bottom:25px;">
+										<div class="col-sm-12">
+											<div class="input-group input-group-lg">
+												<span class="input-group-addon" id="sizing-addon1" style="background-color:white">
+													<div class="glyphicon glyphicon-lock"></div>
+												</span>
+												<input type="password" class="form-control" name="pwd" placeholder="请输入密码" aria-describedby="sizing-addon1">
+											</div>
+										</div>
+									</div>
+									<div class="row col-sm-12" style="margin-bottom:25px;display:none;">
+										<div class="col-sm-12">
+											<p>错误信息域</p>
+										</div>
+									</div>
+									<div class="row col-sm-12" style="margin-bottom:30px">
+										<div class="col-sm-12">
+											<input style="height:45px;" type="submit"  class="btn btn-success btn-block" value="登录"/>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-2">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<div class="row col-sm-12">
+							<div class="text-right">
+								<a href="javascript:void(0)" style="text-decoration:none" data-dismiss="modal" data-toggle="modal" data-target="#register">去注册></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- 注册Modal -->
+		<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" id="myModalLabel">注册</h4>
+					</div>
+					<div class="modal-body">
+						<form action="">
+							<div class="row">
+								<div class="col-sm-2">
+								</div>
+								<div class="col-sm-8">
+									<div class="row col-sm-12" style="margin-top:30px;">
+										<div class="col-sm-12">
+											<div class="input-group input-group-lg">
+												<span class="input-group-addon" id="sizing-addon1" style="background-color:white">
+													<div class="glyphicon glyphicon-phone"></div>
+												</span>
+												<input type="text" class="form-control" id="tel" name="tel" placeholder="注册手机号/邮箱" aria-describedby="sizing-addon1">
+											</div>
+										</div>
+									</div>
+									<div class="row col-sm-12" style="margin-bottom:25px;margin-top:25px;">
+										<div class="col-sm-8" >
+											<div class="input-group input-group-lg" >
+												<span class="input-group-addon" id="sizing-addon1" style="background-color:white">
+													<div class="glyphicon glyphicon-comment"></div>
+												</span>
+												<input type="text" class="form-control" name="code" placeholder="验证码" aria-describedby="sizing-addon1">
+											</div>
+										</div>
+									<!-- 	<div class="col-sm-1"></div> -->
+										
+										<a href="javascript:void(0)" style="text-decoration:none;color:9d9d9d;">
+										<div class="col-sm-4" style="padding-left:0px;">
+										<div class="text-center" style="height:45px;padding-top:10px;border:1px solid #ccc;">发送验证码</div>
+										</div>
+										</a>	
+									</div>
+									<div class="row col-sm-12" style="margin-bottom:25px;">
+										<div class="col-sm-12">
+											<div class="input-group input-group-lg">
+												<span class="input-group-addon" id="sizing-addon1" style="background-color:white">
+													<div class="glyphicon glyphicon-lock"></div>
+												</span>
+												<input type="password" class="form-control" name="pwd" placeholder="设置密码" aria-describedby="sizing-addon1">
+											</div>
+										</div>
+									</div>
+									<div class="row col-sm-12" style="margin-bottom:25px;display:none;">
+										<div class="col-sm-12">
+											<p>错误信息域</p>
+										</div>
+									</div>
+									<div class="row col-sm-12" style="margin-bottom:30px">
+										<div class="col-sm-12">
+											<input style="height:45px;" type="submit"  class="btn btn-success btn-block" value="完成"/>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-2">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<div class="row col-sm-12">
+							<div class="text-left">
+								<a href="javascript:void(0)" style="text-decoration:none" data-dismiss="modal" data-toggle="modal" data-target="#login"><去登录</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
+	
+	
 </html>
